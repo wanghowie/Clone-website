@@ -1,9 +1,10 @@
 import { HeartHandshake, MessageCircle, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 import { ActivityCard, LocalCard, MoreLink, RestaurantCard, StayCard } from "@/components/cards";
-import { localGradients, localIcons } from "@/components/category-icons";
+import { localIcons, localTones } from "@/components/category-icons";
 import { JsonLd } from "@/components/json-ld";
-import { Container, SectionHeading } from "@/components/page-parts";
+import { HeroScene } from "@/components/hero-scene";
+import { Container, SectionHeading, WaveEdge } from "@/components/page-parts";
 import { SearchBox } from "@/components/search-box";
 import { activities, getActivity } from "@/data/activities";
 import { getLocalsByCategory, localCategories, localCategoryOrder, locals } from "@/data/locals";
@@ -57,17 +58,17 @@ export default function Home() {
               <li key={category}>
                 <Link
                   href={`/locals?category=${category}`}
-                  className="group flex h-full flex-col items-start gap-3 rounded-2xl border border-border bg-card p-4 transition-shadow hover:shadow-md"
+                  className="group sticker flex h-full flex-col items-start gap-3 rounded-3xl bg-card p-4 transition-transform hover:-translate-y-1"
                 >
                   <span
                     className={cn(
-                      "flex size-11 items-center justify-center rounded-full bg-gradient-to-br text-white",
-                      localGradients[category],
+                      "flex size-12 items-center justify-center rounded-full border-2 border-ink",
+                      localTones[category],
                     )}
                   >
                     <Icon className="size-5" />
                   </span>
-                  <span className="text-sm font-semibold group-hover:text-primary">
+                  <span className="font-heading text-base font-semibold group-hover:text-primary">
                     {localCategories[category].plural}
                   </span>
                   <span className="mt-auto text-xs text-muted-foreground">
@@ -148,55 +149,55 @@ export default function Home() {
 }
 
 function Hero() {
+  const quickLinks = [
+    ["Apo Island", "/things-to-do/apo-island-day-trip", "bg-palm"],
+    ["Muck diving", "/things-to-do/muck-diving", "bg-secondary"],
+    ["Tricycle", "/locals?category=tricycle", "bg-card"],
+    ["Boat trips", "/locals?category=boatman", "bg-hibiscus"],
+    ["Hostels", "/stay?type=hostel", "bg-sky"],
+  ] as const;
+
   return (
-    <section className="relative overflow-hidden bg-ink text-ink-foreground">
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_10%,oklch(0.72_0.15_50/0.55),transparent_45%),radial-gradient(ellipse_at_10%_90%,oklch(0.5_0.1_200/0.8),transparent_55%),linear-gradient(180deg,oklch(0.3_0.06_235),oklch(0.22_0.04_235))]"
-      />
-      <svg
-        aria-hidden="true"
-        viewBox="0 0 1440 220"
-        preserveAspectRatio="none"
-        className="absolute inset-x-0 bottom-0 h-28 w-full sm:h-40"
-      >
-        <path
-          d="M0 120c120-30 240-30 360 0s240 30 360 0 240-30 360 0 240 30 360 0v100H0z"
-          className="fill-[oklch(0.47_0.09_205/0.45)]"
-        />
-        <path
-          d="M0 160c120-24 240-24 360 0s240 24 360 0 240-24 360 0 240 24 360 0v60H0z"
-          className="fill-background"
-        />
-      </svg>
-      <Container className="relative pt-20 pb-36 sm:pt-28 sm:pb-48">
-        <p className="text-sm font-semibold tracking-widest text-accent uppercase">Dauin · Negros Oriental · Philippines</p>
-        <h1 className="mt-4 max-w-3xl text-5xl leading-[1.05] font-semibold sm:text-6xl lg:text-7xl">
-          Dive, explore and meet the locals of Dauin.
-        </h1>
-        <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-foreground/80">
-          Black-sand beaches, world-famous muck diving and the turtles of Apo Island — plus the tricycle drivers,
-          boatmen and guides who&apos;ll show you around.
-        </p>
-        <SearchBox size="lg" className="mt-8 max-w-xl" />
-        <div className="mt-6 flex flex-wrap gap-2 text-sm">
-          {[
-            ["Apo Island", "/things-to-do/apo-island-day-trip"],
-            ["Muck diving", "/things-to-do/muck-diving"],
-            ["Tricycle", "/locals?category=tricycle"],
-            ["Boat trips", "/locals?category=boatman"],
-            ["Hostels", "/stay?type=hostel"],
-          ].map(([label, href]) => (
-            <Link
-              key={href}
-              href={href}
-              className="rounded-full border border-ink-foreground/25 px-3 py-1 text-ink-foreground/85 transition-colors hover:bg-ink-foreground/10"
-            >
-              {label}
-            </Link>
-          ))}
+    <section className="relative overflow-hidden bg-sun text-ink">
+      <Container className="relative grid items-center gap-10 pt-12 pb-24 sm:pt-16 lg:grid-cols-[1.15fr_1fr] lg:pb-28">
+        <div>
+          <p className="sticker-sm inline-flex -rotate-2 rounded-full bg-card px-3 py-1 text-xs font-bold tracking-widest uppercase sm:text-sm">
+            Dauin · Negros Oriental · Philippines
+          </p>
+          <h1 className="mt-6 text-5xl leading-[0.95] uppercase sm:text-7xl">
+            Dive. Explore.
+            <br />
+            Meet the{" "}
+            <span className="sticker inline-block rotate-2 rounded-2xl bg-primary px-3 text-primary-foreground">
+              locals!
+            </span>
+          </h1>
+          <p className="mt-6 max-w-xl text-lg leading-relaxed font-semibold text-ink/80">
+            Black-sand beaches, world-famous muck diving and the turtles of Apo Island — plus the tricycle drivers,
+            boatmen and guides who&apos;ll show you around.
+          </p>
+          <SearchBox size="lg" className="mt-8 max-w-xl" />
+          <div className="mt-6 flex flex-wrap gap-2.5 text-sm">
+            {quickLinks.map(([label, href, tone], index) => (
+              <Link
+                key={href}
+                href={href}
+                className={cn(
+                  "sticker-sm rounded-full px-3.5 py-1 font-bold transition-transform hover:-translate-y-0.5",
+                  tone,
+                  index % 2 === 0 ? "-rotate-1" : "rotate-1",
+                )}
+              >
+                {label}
+              </Link>
+            ))}
+          </div>
+        </div>
+        <div className="sticker mx-auto w-full max-w-md rotate-1 overflow-hidden rounded-[2.5rem] bg-[oklch(0.92_0.06_215)] lg:max-w-none">
+          <HeroScene className="block w-full" />
         </div>
       </Container>
+      <WaveEdge className="absolute inset-x-0 bottom-0" />
     </section>
   );
 }
@@ -220,24 +221,32 @@ function HowItWorks() {
     },
   ];
   return (
-    <section className="mt-20 bg-secondary/60 py-16 sm:mt-24 sm:py-20">
+    <section className="relative mt-20 bg-secondary py-20 sm:mt-24 sm:py-24">
+      <WaveEdge className="absolute inset-x-0 top-0 rotate-180" />
       <Container>
         <SectionHeading title="How Visit Dauin works" />
         <ol className="mt-10 grid gap-8 md:grid-cols-3">
           {steps.map((step, index) => (
             <li key={step.title} className="flex gap-4">
-              <span className="flex size-12 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                <step.icon className="size-5" />
+              <span
+                className={cn(
+                  "sticker-sm flex size-14 shrink-0 items-center justify-center rounded-2xl",
+                  ["bg-sun", "bg-accent", "bg-palm"][index],
+                  index % 2 === 0 ? "-rotate-3" : "rotate-3",
+                )}
+              >
+                <step.icon className="size-6" />
               </span>
               <div>
-                <p className="text-xs font-semibold tracking-widest text-muted-foreground uppercase">Step {index + 1}</p>
-                <h3 className="mt-1 font-sans text-lg font-semibold">{step.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{step.text}</p>
+                <p className="text-xs font-bold tracking-widest text-secondary-foreground uppercase">Step {index + 1}</p>
+                <h3 className="mt-1 text-xl">{step.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink/75">{step.text}</p>
               </div>
             </li>
           ))}
         </ol>
       </Container>
+      <WaveEdge className="absolute inset-x-0 bottom-0" />
     </section>
   );
 }
@@ -245,20 +254,18 @@ function HowItWorks() {
 function JoinBanner() {
   return (
     <Container className="mt-20 sm:mt-24">
-      <div className="relative overflow-hidden rounded-3xl bg-primary px-6 py-12 text-primary-foreground sm:px-12">
-        <div
-          aria-hidden="true"
-          className="absolute -top-24 -right-24 size-72 rounded-full bg-accent/40 blur-3xl"
-        />
+      <div className="sticker relative overflow-hidden rounded-[2rem] bg-primary px-6 py-12 text-primary-foreground sm:px-12">
+        <div aria-hidden="true" className="absolute -top-16 -right-16 size-56 rounded-full border-2 border-ink bg-sun" />
+        <div aria-hidden="true" className="absolute -right-6 -bottom-10 size-32 rounded-full border-2 border-ink bg-accent" />
         <div className="relative max-w-2xl">
-          <h2 className="text-3xl font-semibold sm:text-4xl">Are you a driver, guide or boatman in Dauin?</h2>
-          <p className="mt-4 text-lg text-primary-foreground/85">
+          <h2 className="text-3xl sm:text-5xl">Are you a driver, guide or boatman in Dauin?</h2>
+          <p className="mt-4 text-lg font-semibold text-primary-foreground/90">
             List your service on Visit Dauin for free. Travellers message you directly — you keep 100% of what you
             earn.
           </p>
           <Link
             href="/join"
-            className="mt-8 inline-flex rounded-full bg-accent px-6 py-3 font-semibold text-accent-foreground transition-colors hover:bg-accent/85"
+            className="sticker mt-8 inline-flex rounded-full bg-sun px-7 py-3 font-heading text-lg font-semibold text-ink transition-transform hover:-translate-y-0.5"
           >
             Join for free
           </Link>

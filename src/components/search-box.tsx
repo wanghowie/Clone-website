@@ -19,7 +19,7 @@ export function SearchBox({
       </label>
       <Search
         className={cn(
-          "pointer-events-none absolute top-1/2 left-4 -translate-y-1/2 text-muted-foreground",
+          "pointer-events-none absolute top-1/2 left-4 -translate-y-1/2 text-ink",
           size === "lg" ? "size-5" : "size-4",
         )}
       />
@@ -30,15 +30,15 @@ export function SearchBox({
         defaultValue={defaultValue}
         placeholder={placeholder}
         className={cn(
-          "w-full rounded-full border border-border bg-card pr-28 text-foreground shadow-sm outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/40",
+          "sticker w-full rounded-full bg-card pr-28 font-semibold text-foreground outline-none placeholder:font-normal placeholder:text-muted-foreground focus-visible:ring-3 focus-visible:ring-ring/50",
           size === "lg" ? "h-14 pl-12 text-base" : "h-11 pl-11 text-sm",
         )}
       />
       <button
         type="submit"
         className={cn(
-          "absolute top-1/2 right-1.5 -translate-y-1/2 rounded-full bg-primary font-semibold text-primary-foreground transition-colors hover:bg-primary/90",
-          size === "lg" ? "h-11 px-6 text-sm" : "h-8 px-4 text-sm",
+          "absolute top-1/2 right-2 -translate-y-1/2 rounded-full border-2 border-ink bg-accent font-bold text-ink transition-colors hover:bg-accent/85",
+          size === "lg" ? "h-10 px-5 text-sm" : "h-7 px-3.5 text-sm",
         )}
       >
         Search

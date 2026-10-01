@@ -30,6 +30,8 @@ export interface Activity {
   bestFor: string[];
   location: string;
   mapQuery: string;
+  /** Optional photo under /public, e.g. "/images/activities/apo-island.jpg" */
+  image?: string;
   /** Local categories that can help with this activity */
   localHelp: LocalCategory[];
 }

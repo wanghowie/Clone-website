@@ -88,6 +88,12 @@ Recruitment post templates and the onboarding checklist are in [`docs/FACEBOOK_R
 
 Prices and fees are approximate — always phrase them that way and keep `contentCheckedAt` up to date.
 
+### Photos
+
+Activities show a colourful illustration until a photo is added. Put an image in `public/images/activities/`
+(landscape, ~1600px wide, JPG/WebP) and set `image: "/images/activities/<file>"` on the activity in
+`src/data/activities.ts`. Use your own photos or ones with a licence that allows commercial use (e.g. Unsplash).
+
 ## Roadmap
 
 See [`docs/PLAN_VISIT_DAUIN.md`](docs/PLAN_VISIT_DAUIN.md).

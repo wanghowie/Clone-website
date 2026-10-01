@@ -53,20 +53,20 @@ export default async function LocalsPage({ searchParams }: PageProps<"/locals">)
             ))}
           </div>
         ) : (
-          <div className="mt-8 rounded-2xl border border-border bg-card p-8 text-center">
+          <div className="sticker mt-8 rounded-3xl bg-card p-8 text-center">
             <p className="text-lg font-semibold">No {category ? localCategories[category].plural.toLowerCase() : "locals"} listed yet.</p>
             <p className="mt-2 text-muted-foreground">We&apos;re adding new locals every week.</p>
           </div>
         )}
 
-        <div className="mt-12 rounded-2xl bg-secondary p-6 sm:flex sm:items-center sm:justify-between">
+        <div className="sticker mt-12 rounded-3xl bg-sun p-6 sm:flex sm:items-center sm:justify-between">
           <div>
-            <h2 className="font-sans text-lg font-semibold">Live in Dauin and offer a service?</h2>
-            <p className="mt-1 text-sm text-muted-foreground">Listing is free. Travellers contact you directly.</p>
+            <h2 className="text-xl">Live in Dauin and offer a service?</h2>
+            <p className="mt-1 text-sm font-semibold text-ink/75">Listing is free. Travellers contact you directly.</p>
           </div>
           <Link
             href="/join"
-            className="mt-4 inline-flex rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground sm:mt-0"
+            className="sticker-sm mt-4 inline-flex rounded-full bg-primary px-5 py-2.5 text-sm font-bold text-primary-foreground transition-transform hover:-translate-y-0.5 sm:mt-0"
           >
             Join Visit Dauin
           </Link>

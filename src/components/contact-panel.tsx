@@ -51,8 +51,8 @@ export function ContactPanel({
   const hasDirectChannel = Boolean(contact.whatsapp || contact.phone || contact.messenger);
 
   return (
-    <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
-      <h2 className="font-sans text-lg font-semibold">Message {localName}</h2>
+    <div className="sticker rounded-3xl bg-card p-5">
+      <h2 className="text-xl">Message {localName}</h2>
       <p className="mt-1 text-sm text-muted-foreground">
         Fill in your trip details and we&apos;ll write the message for you. You agree price and pay directly.
       </p>
@@ -169,10 +169,10 @@ function ChannelButton({
       rel="noopener noreferrer"
       onClick={onClick}
       className={cn(
-        "inline-flex h-11 items-center justify-center gap-2 rounded-full px-4 text-sm font-semibold transition-colors",
+        "sticker-sm inline-flex h-11 items-center justify-center gap-2 rounded-full px-4 text-sm font-bold transition-colors",
         primary
           ? "bg-primary text-primary-foreground hover:bg-primary/90"
-          : "border border-border bg-background hover:bg-muted",
+          : "bg-card hover:bg-sun",
       )}
     >
       {children}

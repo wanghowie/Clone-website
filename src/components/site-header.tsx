@@ -15,7 +15,7 @@ export function SiteHeader() {
   const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border/70 bg-background/90 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b-2 border-ink bg-background">
       <div className="mx-auto flex h-16 max-w-6xl items-center gap-6 px-4 sm:px-6">
         <Link href="/" className="shrink-0" onClick={() => setOpen(false)}>
           <Logo />
@@ -27,8 +27,8 @@ export function SiteHeader() {
               key={item.href}
               href={item.href}
               className={cn(
-                "rounded-full px-3 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground",
-                isActive(item.href) && "bg-secondary text-secondary-foreground",
+                "rounded-full border-2 border-transparent px-3 py-1.5 text-sm font-bold text-ink/75 transition-colors hover:text-ink",
+                isActive(item.href) && "sticker-sm bg-sun text-ink",
               )}
             >
               {item.label}
@@ -40,13 +40,13 @@ export function SiteHeader() {
           <Link
             href="/search"
             aria-label="Search"
-            className="inline-flex size-9 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+            className="inline-flex size-9 items-center justify-center rounded-full text-ink transition-colors hover:bg-sun"
           >
             <Search className="size-4" />
           </Link>
           <Link
             href="/join"
-            className="hidden rounded-full bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent/85 sm:inline-flex"
+            className="sticker-sm hidden rounded-full bg-accent px-4 py-1.5 text-sm font-bold text-ink transition-transform hover:-translate-y-0.5 sm:inline-flex"
           >
             Are you a local? Join
           </Link>
@@ -63,7 +63,7 @@ export function SiteHeader() {
       </div>
 
       {open && (
-        <nav className="border-t border-border bg-background px-4 py-3 lg:hidden" aria-label="Mobile">
+        <nav className="border-t-2 border-ink bg-background px-4 py-3 lg:hidden" aria-label="Mobile">
           <ul className="flex flex-col">
             {mainNav.map((item) => (
               <li key={item.href}>
@@ -72,7 +72,7 @@ export function SiteHeader() {
                   onClick={() => setOpen(false)}
                   className={cn(
                     "block rounded-lg px-3 py-3 text-base font-medium",
-                    isActive(item.href) ? "bg-secondary text-secondary-foreground" : "hover:bg-muted",
+                    isActive(item.href) ? "bg-sun font-bold" : "font-semibold hover:bg-muted",
                   )}
                 >
                   {item.label}
@@ -83,7 +83,7 @@ export function SiteHeader() {
               <Link
                 href="/join"
                 onClick={() => setOpen(false)}
-                className="block rounded-lg bg-accent px-3 py-3 text-center text-base font-semibold text-accent-foreground"
+                className="sticker-sm block rounded-xl bg-accent px-3 py-3 text-center text-base font-bold text-ink"
               >
                 Are you a local? Join Visit Dauin
               </Link>

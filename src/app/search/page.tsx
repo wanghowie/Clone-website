@@ -39,7 +39,7 @@ export default async function SearchPage({ searchParams }: PageProps<"/search">)
           ))}
         </ul>
         {query && results.length === 0 && (
-          <div className="rounded-2xl border border-border bg-card p-8 text-center">
+          <div className="sticker rounded-3xl bg-card p-8 text-center">
             <p className="font-semibold">Nothing found.</p>
             <p className="mt-2 text-sm text-muted-foreground">
               Try a broader word like “diving”, “boat”, “pizza” or “hostel”.

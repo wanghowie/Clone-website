@@ -1,11 +1,12 @@
 import { CircleAlert, Clock, MapPin, Users, Wallet } from "lucide-react";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ActivityCard, ExternalTextLink, LocalCard } from "@/components/cards";
-import { activityGradients, activityIcons, localIcons } from "@/components/category-icons";
+import { activityIcons, activityTones, localIcons } from "@/components/category-icons";
 import { JsonLd } from "@/components/json-ld";
-import { Container } from "@/components/page-parts";
+import { Container, WaveEdge } from "@/components/page-parts";
 import { activities, activityCategories, getActivity } from "@/data/activities";
 import { localCategories, locals } from "@/data/locals";
 import { siteConfig } from "@/data/site";
@@ -55,21 +56,39 @@ export default async function ActivityPage({ params }: PageProps<"/things-to-do/
           touristType: activity.bestFor,
         }}
       />
-      <header className={cn("relative overflow-hidden bg-gradient-to-br text-white", activityGradients[activity.category])}>
-        <Icon className="absolute -right-6 -bottom-8 size-64 text-white/15" strokeWidth={1} aria-hidden="true" />
-        <Container className="relative py-14 sm:py-20">
-          <nav aria-label="Breadcrumb" className="text-sm text-white/80">
-            <Link href="/things-to-do" className="hover:underline">
-              Things to do
-            </Link>
-            <span className="mx-2">/</span>
-            <Link href={`/things-to-do?category=${activity.category}`} className="hover:underline">
-              {activityCategories[activity.category].label}
-            </Link>
-          </nav>
-          <h1 className="mt-4 max-w-3xl text-4xl font-semibold sm:text-5xl">{activity.title}</h1>
-          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-white/90">{activity.summary}</p>
+      <header className={cn("relative overflow-hidden", activityTones[activity.category])}>
+        <Container className="relative grid items-center gap-10 pt-12 pb-20 sm:pt-16 sm:pb-24 lg:grid-cols-[1.4fr_1fr]">
+          <div>
+            <nav aria-label="Breadcrumb" className="text-sm font-bold opacity-80">
+              <Link href="/things-to-do" className="hover:underline">
+                Things to do
+              </Link>
+              <span className="mx-2">/</span>
+              <Link href={`/things-to-do?category=${activity.category}`} className="hover:underline">
+                {activityCategories[activity.category].label}
+              </Link>
+            </nav>
+            <h1 className="mt-4 max-w-3xl text-4xl sm:text-6xl">{activity.title}</h1>
+            <p className="mt-4 max-w-2xl text-lg leading-relaxed font-semibold opacity-90">{activity.summary}</p>
+          </div>
+          {activity.image ? (
+            <div className="sticker relative aspect-[4/3] rotate-2 overflow-hidden rounded-3xl">
+              <Image
+                src={activity.image}
+                alt={activity.title}
+                fill
+                priority
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+          ) : (
+            <div className="sticker mx-auto hidden size-56 rotate-6 items-center justify-center rounded-full bg-card text-ink lg:flex">
+              <Icon className="size-28" strokeWidth={1.5} aria-hidden="true" />
+            </div>
+          )}
         </Container>
+        <WaveEdge className="absolute inset-x-0 bottom-0" />
       </header>
 
       <Container className="mt-10 grid gap-12 lg:grid-cols-[1fr_340px]">
@@ -83,7 +102,7 @@ export default async function ActivityPage({ params }: PageProps<"/things-to-do/
           <h2 className="mt-12 text-2xl font-semibold">Highlights</h2>
           <ul className="mt-4 grid gap-3 sm:grid-cols-2">
             {activity.highlights.map((highlight) => (
-              <li key={highlight} className="rounded-xl border border-border bg-card px-4 py-3 text-sm">
+              <li key={highlight} className="sticker-sm rounded-2xl bg-card px-4 py-3 text-sm font-semibold">
                 {highlight}
               </li>
             ))}
@@ -104,7 +123,7 @@ export default async function ActivityPage({ params }: PageProps<"/things-to-do/
         </div>
 
         <aside className="space-y-6 lg:sticky lg:top-24 lg:self-start">
-          <dl className="space-y-4 rounded-2xl border border-border bg-card p-5">
+          <dl className="sticker space-y-4 rounded-3xl bg-card p-5">
             {facts.map((fact) => (
               <div key={fact.label} className="flex gap-3">
                 <fact.icon className="mt-0.5 size-4 shrink-0 text-primary" />
@@ -119,8 +138,8 @@ export default async function ActivityPage({ params }: PageProps<"/things-to-do/
             </div>
           </dl>
 
-          <div className="rounded-2xl bg-secondary p-5">
-            <h2 className="font-sans text-base font-semibold">Locals who can help</h2>
+          <div className="sticker rounded-3xl bg-sun p-5">
+            <h2 className="text-lg">Locals who can help</h2>
             <ul className="mt-3 space-y-2">
               {activity.localHelp.map((category) => {
                 const CategoryIcon = localIcons[category];

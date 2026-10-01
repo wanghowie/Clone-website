@@ -130,7 +130,7 @@ export default function PlanPage() {
               {section.cta && (
                 <Link
                   href={section.cta.href}
-                  className="mt-5 inline-flex rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground"
+                  className="sticker-sm mt-5 inline-flex rounded-full bg-primary px-5 py-2.5 text-sm font-bold text-primary-foreground transition-transform hover:-translate-y-0.5"
                 >
                   {section.cta.label}
                 </Link>

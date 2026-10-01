@@ -55,7 +55,7 @@ export function JoinForm() {
   }
 
   return (
-    <div className="rounded-2xl border border-border bg-card p-5 shadow-sm sm:p-6">
+    <div className="sticker rounded-3xl bg-card p-5 sm:p-6">
       <form className="grid gap-4 sm:grid-cols-2" onSubmit={(event) => event.preventDefault()}>
         <label className="block text-sm font-medium">
           Your name *
@@ -155,7 +155,7 @@ export function JoinForm() {
           type="button"
           onClick={copyMessage}
           disabled={!ready}
-          className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-border px-4 text-sm font-semibold hover:bg-muted disabled:opacity-50"
+          className="sticker-sm inline-flex h-11 items-center justify-center gap-2 rounded-full bg-card px-4 text-sm font-bold hover:bg-sun disabled:opacity-50"
         >
           {copied ? <Check className="size-4" /> : <Copy className="size-4" />}
           {copied ? "Copied!" : "Copy my details"}
@@ -186,7 +186,7 @@ function SendLink({
 }) {
   const className = primary
     ? "bg-primary text-primary-foreground hover:bg-primary/90"
-    : "border border-border bg-background hover:bg-muted";
+    : "bg-card hover:bg-sun";
   if (disabled) {
     return (
       <span
@@ -203,7 +203,7 @@ function SendLink({
       target="_blank"
       rel="noopener noreferrer"
       onClick={onClick}
-      className={`inline-flex h-11 items-center justify-center gap-2 rounded-full px-4 text-sm font-semibold transition-colors ${className}`}
+      className={`sticker-sm inline-flex h-11 items-center justify-center gap-2 rounded-full px-4 text-sm font-bold transition-colors ${className}`}
     >
       {children}
     </a>

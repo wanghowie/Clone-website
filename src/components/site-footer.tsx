@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { Logo } from "@/components/logo";
+import { WaveEdge } from "@/components/page-parts";
 import { localCategories, localCategoryOrder } from "@/data/locals";
 import { mainNav, siteConfig } from "@/data/site";
 
 export function SiteFooter() {
   return (
-    <footer className="mt-24 bg-ink text-ink-foreground">
+    <footer className="relative mt-28 bg-ink text-ink-foreground">
+      <WaveEdge className="absolute inset-x-0 top-0 -translate-y-full text-ink" />
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
         <div className="max-w-sm">
           <Logo inverted />
@@ -53,7 +55,7 @@ export function SiteFooter() {
 function FooterColumn({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <h2 className="font-sans text-xs font-semibold tracking-widest text-ink-foreground/50 uppercase">{title}</h2>
+      <h2 className="font-sans text-xs font-bold tracking-widest text-sun uppercase">{title}</h2>
       <ul className="mt-4 space-y-2.5">{children}</ul>
     </div>
   );

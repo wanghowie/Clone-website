@@ -66,7 +66,7 @@ export default async function LocalPage({ params }: PageProps<"/locals/[slug]">)
             </div>
           </div>
 
-          <dl className="mt-8 grid gap-4 rounded-2xl border border-border bg-card p-5 sm:grid-cols-3">
+          <dl className="sticker mt-8 grid gap-4 rounded-3xl bg-card p-5 sm:grid-cols-3">
             <Fact icon={MapPin} label="Based in" value={`${local.barangay}, Dauin`} />
             <Fact icon={Languages} label="Speaks" value={local.languages.join(", ")} />
             <Fact icon={CalendarDays} label="Availability" value={local.availability} />
@@ -79,7 +79,7 @@ export default async function LocalPage({ params }: PageProps<"/locals/[slug]">)
           )}
 
           <h2 className="mt-10 text-2xl font-semibold">Services</h2>
-          <ul className="mt-4 divide-y divide-border rounded-2xl border border-border bg-card">
+          <ul className="sticker mt-4 divide-y-2 divide-ink/10 rounded-3xl bg-card">
             {local.services.map((service) => (
               <li key={service.name} className="flex items-start justify-between gap-4 p-4">
                 <div>

@@ -35,7 +35,7 @@ export default function JoinPage() {
       >
         <a
           href="#apply"
-          className="mt-8 inline-flex rounded-full bg-accent px-6 py-3 font-semibold text-accent-foreground transition-colors hover:bg-accent/85"
+          className="sticker mt-8 inline-flex rounded-full bg-accent px-6 py-3 font-heading text-lg font-semibold text-ink transition-transform hover:-translate-y-0.5"
         >
           Apply now — it&apos;s free
         </a>
@@ -44,9 +44,9 @@ export default function JoinPage() {
       <Container className="mt-12">
         <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {benefits.map((benefit) => (
-            <li key={benefit.title} className="rounded-2xl border border-border bg-card p-5">
+            <li key={benefit.title} className="sticker rounded-3xl bg-card p-5">
               <benefit.icon className="size-6 text-primary" />
-              <h2 className="mt-3 font-sans text-base font-semibold">{benefit.title}</h2>
+              <h2 className="mt-3 text-lg">{benefit.title}</h2>
               <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{benefit.text}</p>
             </li>
           ))}

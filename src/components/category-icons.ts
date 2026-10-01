@@ -33,22 +33,22 @@ export const localIcons: Record<LocalCategory, LucideIcon> = {
   "tour-guide": Compass,
 };
 
-/** Gradient backdrops used in place of photos until real imagery is added */
-export const activityGradients: Record<ActivityCategory, string> = {
-  diving: "from-[oklch(0.42_0.1_220)] via-[oklch(0.5_0.1_200)] to-[oklch(0.68_0.1_180)]",
-  island: "from-[oklch(0.45_0.1_190)] via-[oklch(0.6_0.11_170)] to-[oklch(0.82_0.08_95)]",
-  nature: "from-[oklch(0.35_0.06_160)] via-[oklch(0.48_0.08_150)] to-[oklch(0.7_0.08_120)]",
-  culture: "from-[oklch(0.42_0.06_40)] via-[oklch(0.58_0.1_50)] to-[oklch(0.8_0.09_75)]",
-  wellness: "from-[oklch(0.5_0.08_330)] via-[oklch(0.65_0.1_20)] to-[oklch(0.85_0.07_70)]",
-  "day-trip": "from-[oklch(0.35_0.05_250)] via-[oklch(0.5_0.08_230)] to-[oklch(0.75_0.1_60)]",
-  nearby: "from-[oklch(0.4_0.09_235)] via-[oklch(0.55_0.11_195)] to-[oklch(0.88_0.06_90)]",
+/** Bright tropical colour blocks per category (used until real photos are added) */
+export const activityTones: Record<ActivityCategory, string> = {
+  diving: "bg-primary text-primary-foreground",
+  island: "bg-palm text-ink",
+  nature: "bg-[oklch(0.8_0.15_128)] text-ink",
+  culture: "bg-accent text-ink",
+  wellness: "bg-hibiscus text-ink",
+  "day-trip": "bg-sun text-ink",
+  nearby: "bg-sky text-ink",
 };
 
-export const localGradients: Record<LocalCategory, string> = {
-  tricycle: "from-[oklch(0.55_0.13_45)] to-[oklch(0.75_0.12_70)]",
-  "van-bus": "from-[oklch(0.4_0.06_250)] to-[oklch(0.6_0.08_220)]",
-  "dive-guide": "from-[oklch(0.42_0.1_220)] to-[oklch(0.65_0.1_190)]",
-  boatman: "from-[oklch(0.45_0.1_190)] to-[oklch(0.72_0.1_160)]",
-  yoga: "from-[oklch(0.5_0.08_330)] to-[oklch(0.75_0.09_30)]",
-  "tour-guide": "from-[oklch(0.38_0.06_160)] to-[oklch(0.62_0.09_130)]",
+export const localTones: Record<LocalCategory, string> = {
+  tricycle: "bg-sun text-ink",
+  "van-bus": "bg-sky text-ink",
+  "dive-guide": "bg-primary text-primary-foreground",
+  boatman: "bg-palm text-ink",
+  yoga: "bg-hibiscus text-ink",
+  "tour-guide": "bg-accent text-ink",
 };

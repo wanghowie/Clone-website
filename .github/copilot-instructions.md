@@ -24,7 +24,8 @@ A local-first travel guide and connection platform for Dauin, Negros Oriental (P
 - **Framework:** Next.js 16 (App Router, React 19, TypeScript strict)
 - **UI:** shadcn/ui primitives, Tailwind CSS v4, `cn()` utility
 - **Icons:** Lucide React
-- **Fonts:** Fraunces (headings) + Geist (body) via `next/font/google`
+- **Fonts:** Fredoka (headings) + Nunito (body) via `next/font/google`
+- **Visual style:** bright tropical "sticker" look — sun yellow, lagoon turquoise, coral, palm green; thick ink outlines with hard offset shadows (`sticker` / `sticker-sm` utilities in `globals.css`)
 - **Data:** typed static data in `src/data/*.ts` (move to a database such as Supabase when locals self-manage profiles)
 - **Deployment:** Vercel
 
