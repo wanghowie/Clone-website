@@ -29,20 +29,33 @@ Edit `src/data/site.ts`:
 
 Production domain: **https://www.visitdauin.com** (default in `siteConfig.url`; override with `NEXT_PUBLIC_SITE_URL`).
 
-## Deploying to Vercel
+## Deploying to Hostinger (Node.js Web App)
 
-1. Import this GitHub repository in Vercel (framework preset: Next.js). Production deploys from the default branch.
-2. Project → Settings → Domains: add `www.visitdauin.com` and `visitdauin.com`, and set `visitdauin.com` to
-   redirect to `www.visitdauin.com`.
-3. At your domain registrar, add the DNS records Vercel shows — typically:
+The site runs as a Node.js app (Hostinger Business / Cloud plans support Next.js).
 
-   | Type | Name | Value |
-   | --- | --- | --- |
-   | A | `@` | `76.76.21.21` |
-   | CNAME | `www` | `cname.vercel-dns.com` |
+1. Merge the work into `master` (or pick the feature branch when importing).
+2. hPanel → **Websites → Add Website → Node.js Apps → Import Git Repository**, authorise GitHub and choose
+   `wanghowie/clone-website`. Attach it to the domain `visitdauin.com`.
+3. Build settings:
 
-4. Wait for DNS to propagate (minutes to a few hours); Vercel issues the HTTPS certificate automatically.
-5. Submit `https://www.visitdauin.com/sitemap.xml` in Google Search Console.
+   | Setting | Value |
+   | --- | --- |
+   | Framework | Next.js |
+   | Node.js version | 24.x |
+   | Install command | `npm ci` |
+   | Build command | `npm run build` |
+   | Start command | `npm run start` (Next.js reads Hostinger's `PORT`) |
+
+4. Environment variable (optional): `NEXT_PUBLIC_SITE_URL=https://www.visitdauin.com`.
+5. Deploy. New pushes to the selected branch can redeploy automatically.
+6. Make sure both `visitdauin.com` and `www.visitdauin.com` point to the app and that SSL is active
+   (hPanel → Security → SSL). Redirect the bare domain to `www`.
+7. Submit `https://www.visitdauin.com/sitemap.xml` in Google Search Console.
+
+If the domain currently hosts a PHP/WordPress site in `public_html`, back it up first — the Node.js app replaces it.
+
+Other Node hosts (e.g. Vercel) work too: `npm ci && npm run build`, then `npm run start`.
+The Docker image builds with standalone output automatically (`NEXT_OUTPUT=standalone` in the `Dockerfile`).
 
 ## Adding a local
 
