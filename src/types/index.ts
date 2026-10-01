@@ -61,6 +61,8 @@ export interface Local {
   yearsExperience?: number;
   services: LocalService[];
   availability: string;
+  /** Path under /public, e.g. "/images/locals/kuya-jun.jpg" */
+  photo?: string;
   contact: LocalContact;
   verified: boolean;
   /** Example profiles illustrate the layout and are hidden once real locals join */

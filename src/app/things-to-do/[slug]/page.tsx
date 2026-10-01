@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ActivityCard, ExternalTextLink, LocalCard } from "@/components/cards";
 import { activityGradients, activityIcons, localIcons } from "@/components/category-icons";
+import { JsonLd } from "@/components/json-ld";
 import { Container } from "@/components/page-parts";
 import { activities, activityCategories, getActivity } from "@/data/activities";
 import { localCategories, locals } from "@/data/locals";
@@ -43,6 +44,17 @@ export default async function ActivityPage({ params }: PageProps<"/things-to-do/
 
   return (
     <article>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "TouristAttraction",
+          name: activity.title,
+          description: activity.summary,
+          url: `${siteConfig.url}/things-to-do/${activity.slug}`,
+          address: activity.location,
+          touristType: activity.bestFor,
+        }}
+      />
       <header className={cn("relative overflow-hidden bg-gradient-to-br text-white", activityGradients[activity.category])}>
         <Icon className="absolute -right-6 -bottom-8 size-64 text-white/15" strokeWidth={1} aria-hidden="true" />
         <Container className="relative py-14 sm:py-20">

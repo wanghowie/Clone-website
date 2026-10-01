@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { StayCard } from "@/components/cards";
+import { JsonLd } from "@/components/json-ld";
 import { Container, FilterChips, PageHeader } from "@/components/page-parts";
 import { siteConfig } from "@/data/site";
 import { stays, stayTypes } from "@/data/stays";
@@ -31,6 +32,25 @@ export default async function StayPage({ searchParams }: PageProps<"/stay">) {
 
   return (
     <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "Places to stay in Dauin",
+          itemListElement: stays.map((stay, index) => ({
+            "@type": "ListItem",
+            position: index + 1,
+            item: {
+              "@type": "LodgingBusiness",
+              name: stay.name,
+              description: stay.summary,
+              priceRange: "₱".repeat(stay.priceTier),
+              address: `${stay.area}, Dauin, Negros Oriental, Philippines`,
+              ...(stay.website && { url: stay.website }),
+            },
+          })),
+        }}
+      />
       <PageHeader
         eyebrow="Stay"
         title="Where to stay in Dauin"

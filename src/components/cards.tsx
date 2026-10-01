@@ -1,4 +1,5 @@
 import { ArrowRight, BadgeCheck, Clock, ExternalLink, MapPin, Star } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import {
   activityGradients,
@@ -46,21 +47,13 @@ export function ActivityCard({ activity }: { activity: Activity }) {
 
 export function LocalCard({ local }: { local: Local }) {
   const category = localCategories[local.category];
-  const Icon = localIcons[local.category];
   return (
     <Link
       href={`/locals/${local.slug}`}
       className="group flex flex-col rounded-2xl border border-border bg-card p-5 transition-shadow hover:shadow-lg"
     >
       <div className="flex items-start gap-4">
-        <div
-          className={cn(
-            "flex size-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-br text-white",
-            localGradients[local.category],
-          )}
-        >
-          <Icon className="size-6" />
-        </div>
+        <LocalAvatar local={local} size="sm" />
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-1.5">
             <h3 className="font-sans text-base font-semibold group-hover:text-primary">{local.name}</h3>
@@ -81,6 +74,33 @@ export function LocalCard({ local }: { local: Local }) {
         ))}
       </div>
     </Link>
+  );
+}
+
+export function LocalAvatar({ local, size }: { local: Local; size: "sm" | "lg" }) {
+  const Icon = localIcons[local.category];
+  const box = size === "sm" ? "size-14" : "size-24";
+  if (local.photo) {
+    return (
+      <Image
+        src={local.photo}
+        alt={local.name}
+        width={size === "sm" ? 56 : 96}
+        height={size === "sm" ? 56 : 96}
+        className={cn(box, "shrink-0 rounded-full object-cover")}
+      />
+    );
+  }
+  return (
+    <div
+      className={cn(
+        box,
+        "flex shrink-0 items-center justify-center rounded-full bg-gradient-to-br text-white",
+        localGradients[local.category],
+      )}
+    >
+      <Icon className={size === "sm" ? "size-6" : "size-10"} />
+    </div>
   );
 }
 

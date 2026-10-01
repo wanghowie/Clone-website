@@ -34,7 +34,10 @@ Set `NEXT_PUBLIC_SITE_URL` to the production domain (used in the sitemap and met
 1. Meet them (in person or via Facebook) and get their consent to be listed.
 2. Add an entry to `src/data/locals.ts` with their services, languages, barangay and contact
    (`whatsapp`, `messenger` and/or `phone`).
-3. Set `verified: true` only after meeting them in person — it shows a "Met in person" badge.
+3. Optional: put a photo in `public/images/locals/` and set `photo: "/images/locals/<name>.jpg"`.
+4. Set `verified: true` only after meeting them in person — it shows a "Met in person" badge.
+
+Recruitment post templates and the onboarding checklist are in [`docs/FACEBOOK_RECRUITMENT.md`](docs/FACEBOOK_RECRUITMENT.md).
 
 ## Content
 

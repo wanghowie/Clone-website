@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { RestaurantCard } from "@/components/cards";
+import { JsonLd } from "@/components/json-ld";
 import { Container, FilterChips, PageHeader } from "@/components/page-parts";
 import { restaurants, restaurantTypes } from "@/data/restaurants";
 import { siteConfig } from "@/data/site";
@@ -31,6 +32,25 @@ export default async function EatPage({ searchParams }: PageProps<"/eat">) {
 
   return (
     <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "Restaurants in Dauin",
+          itemListElement: restaurants.map((restaurant, index) => ({
+            "@type": "ListItem",
+            position: index + 1,
+            item: {
+              "@type": "Restaurant",
+              name: restaurant.name,
+              description: restaurant.summary,
+              priceRange: "₱".repeat(restaurant.priceTier),
+              address: `${restaurant.area}, Dauin, Negros Oriental, Philippines`,
+              ...(restaurant.website && { url: restaurant.website }),
+            },
+          })),
+        }}
+      />
       <PageHeader
         eyebrow="Eat & drink"
         title="Where to eat & drink in Dauin"

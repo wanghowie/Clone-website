@@ -2,11 +2,13 @@ import { HeartHandshake, MessageCircle, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 import { ActivityCard, LocalCard, MoreLink, RestaurantCard, StayCard } from "@/components/cards";
 import { localGradients, localIcons } from "@/components/category-icons";
+import { JsonLd } from "@/components/json-ld";
 import { Container, SectionHeading } from "@/components/page-parts";
 import { SearchBox } from "@/components/search-box";
 import { activities, getActivity } from "@/data/activities";
 import { getLocalsByCategory, localCategories, localCategoryOrder, locals } from "@/data/locals";
 import { restaurants } from "@/data/restaurants";
+import { siteConfig } from "@/data/site";
 import { stays } from "@/data/stays";
 import { cn } from "@/lib/utils";
 
@@ -25,6 +27,20 @@ export default function Home() {
 
   return (
     <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: siteConfig.name,
+          url: siteConfig.url,
+          description: siteConfig.description,
+          potentialAction: {
+            "@type": "SearchAction",
+            target: `${siteConfig.url}/search?q={search_term_string}`,
+            "query-input": "required name=search_term_string",
+          },
+        }}
+      />
       <Hero />
 
       <Container className="mt-16 sm:mt-20">

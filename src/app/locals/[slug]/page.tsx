@@ -2,13 +2,11 @@ import { BadgeCheck, CalendarDays, Languages, MapPin } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ActivityCard, ExampleBadge } from "@/components/cards";
-import { localGradients, localIcons } from "@/components/category-icons";
+import { ActivityCard, ExampleBadge, LocalAvatar } from "@/components/cards";
 import { ContactPanel } from "@/components/contact-panel";
 import { Container } from "@/components/page-parts";
 import { activities } from "@/data/activities";
 import { getLocal, localCategories, locals } from "@/data/locals";
-import { cn } from "@/lib/utils";
 
 export function generateStaticParams() {
   return locals.map((local) => ({ slug: local.slug }));
@@ -32,7 +30,6 @@ export default async function LocalPage({ params }: PageProps<"/locals/[slug]">)
   if (!local) notFound();
 
   const category = localCategories[local.category];
-  const Icon = localIcons[local.category];
   const relatedActivities = activities.filter((activity) => activity.localHelp.includes(local.category)).slice(0, 3);
 
   return (
@@ -52,14 +49,7 @@ export default async function LocalPage({ params }: PageProps<"/locals/[slug]">)
       <Container className="mt-6 grid gap-10 lg:grid-cols-[1fr_380px]">
         <div className="min-w-0">
           <div className="flex flex-col gap-6 sm:flex-row sm:items-center">
-            <div
-              className={cn(
-                "flex size-24 shrink-0 items-center justify-center rounded-full bg-gradient-to-br text-white",
-                localGradients[local.category],
-              )}
-            >
-              <Icon className="size-10" />
-            </div>
+            <LocalAvatar local={local} size="lg" />
             <div>
               <div className="flex flex-wrap items-center gap-2">
                 <h1 className="text-4xl font-semibold">{local.name}</h1>
