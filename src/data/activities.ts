@@ -284,7 +284,7 @@ export const activities: Activity[] = [
     description: [
       "Oslob is just across the Tañon Strait from Negros. Every morning whale sharks — the largest fish in the sea — gather off Barangay Tan-awan, where you can watch from a boat or snorkel alongside them.",
       "From Dauin, ride north to Sibulan port, take the short ferry to Liloan port in Santander, Cebu, and it's about 15 minutes by road to Tan-awan. Many travellers add Tumalog Falls nearby on the way back.",
-      "The encounters rely on fishermen feeding the sharks, which marine scientists criticise because it changes their natural behaviour. Decide for yourself — and if you go, follow the rules strictly.",
+      "Whale shark watching has changed life in Tan-awan. Families who once depended on fishing now earn a steady living as boatmen, spotters, guides and cooks, and visitor fees support the community. Local people have every reason to protect these gentle giants — a place where people and whale sharks live side by side. Follow the briefing and the rules, and your visit helps keep it that way.",
     ],
     highlights: [
       "Snorkel with whale sharks",
