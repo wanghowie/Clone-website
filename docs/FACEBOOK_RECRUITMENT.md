@@ -3,7 +3,7 @@
 目标：通过 Facebook 招募 Dauin 的 freelance 本地人（tricycle 司机、van/大巴司机、潜导、船家、瑜伽老师、导游），
 引导他们到网站 `/join` 页面填表，或直接私信你。
 
-> 把下面文案里的 `visitdauin.com` 换成你的正式域名；把 `[你的名字]` 换成你自己的名字。
+> 正式域名是 **www.visitdauin.com**。帖子里写短的 `visitdauin.com` 更好记，会自动跳转到 www。把 `[你的名字]` 换成你自己的名字。
 > 宿务语（Bisaya）版本是机器起草的，**发布前请让一位当地人检查一遍**。
 
 ---

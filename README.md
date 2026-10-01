@@ -27,7 +27,22 @@ Edit `src/data/site.ts`:
 | `bookingAffiliateId` | Optional Booking.com affiliate id appended to hotel links. |
 | `contentCheckedAt` | Update whenever prices / fees / hours are re-checked. |
 
-Set `NEXT_PUBLIC_SITE_URL` to the production domain (used in the sitemap and metadata).
+Production domain: **https://www.visitdauin.com** (default in `siteConfig.url`; override with `NEXT_PUBLIC_SITE_URL`).
+
+## Deploying to Vercel
+
+1. Import this GitHub repository in Vercel (framework preset: Next.js). Production deploys from the default branch.
+2. Project → Settings → Domains: add `www.visitdauin.com` and `visitdauin.com`, and set `visitdauin.com` to
+   redirect to `www.visitdauin.com`.
+3. At your domain registrar, add the DNS records Vercel shows — typically:
+
+   | Type | Name | Value |
+   | --- | --- | --- |
+   | A | `@` | `76.76.21.21` |
+   | CNAME | `www` | `cname.vercel-dns.com` |
+
+4. Wait for DNS to propagate (minutes to a few hours); Vercel issues the HTTPS certificate automatically.
+5. Submit `https://www.visitdauin.com/sitemap.xml` in Google Search Console.
 
 ## Adding a local
 

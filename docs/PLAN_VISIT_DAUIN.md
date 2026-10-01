@@ -194,7 +194,8 @@ Itinerary     id, userId, title, days[{items: placeId|listingId}], isPublic
 - [ ] 实地走访：拍照、记录景点 / 潜点 / 价格 / 交通
 - [ ] 拜访 Dauin 市政府旅游办公室（LGU Tourism Office），争取官方支持或合作
 - [ ] 招募首批 **15–30 位本地主人**（船家、向导、潜店、民宿、厨师），帮他们建档
-- [ ] 确定品牌名、域名（visitdauin.com / .ph 等）、Logo、配色
+- [x] 域名：www.visitdauin.com
+- [ ] Logo、配色定稿
 - [ ] 竞品分析：Klook、GetYourGuide、Airbnb Experiences、TripAdvisor 上的 Dauin 内容
 
 > 平台类产品最大的风险不是技术，而是"冷启动"——没有主人，游客来了也没用。

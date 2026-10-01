@@ -3,7 +3,7 @@ export const siteConfig = {
   tagline: "Meet the locals who make Dauin",
   description:
     "Your local guide to Dauin, Negros Oriental — muck diving, Apo Island, hot springs and black-sand sunsets. Find trusted tricycle drivers, dive guides, boatmen, yoga teachers and tour guides, and message them directly.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://visitdauin.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.visitdauin.com",
   /** Last time the guide content (prices, fees, opening hours) was checked */
   contentCheckedAt: "October 2026",
   /**
