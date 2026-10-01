@@ -7,6 +7,10 @@ export const activityCategories: Record<ActivityCategory, { label: string; descr
   culture: { label: "Culture & history", description: "Spanish-era church, watchtowers and markets" },
   wellness: { label: "Yoga & wellness", description: "Daily classes and slow mornings" },
   "day-trip": { label: "Day trips", description: "Dumaguete, markets and waterfalls nearby" },
+  nearby: {
+    label: "Negros & nearby islands",
+    description: "Whale sharks in Oslob, Siquijor's waterfalls and the white sandbar of Bais",
+  },
 };
 
 export const activities: Activity[] = [
@@ -270,6 +274,92 @@ export const activities: Activity[] = [
     location: "Valencia, ~30–45 min from Dauin",
     mapQuery: "Casaroro Falls Valencia Negros Oriental",
     localHelp: ["van-bus", "tour-guide", "tricycle"],
+  },
+  {
+    slug: "oslob-whale-sharks",
+    title: "Oslob whale sharks (Cebu)",
+    category: "nearby",
+    summary:
+      "Cross the strait to southern Cebu to snorkel beside whale sharks in Oslob — the most popular day trip from the Dumaguete area.",
+    description: [
+      "Oslob is just across the Tañon Strait from Negros. Every morning whale sharks — the largest fish in the sea — gather off Barangay Tan-awan, where you can watch from a boat or snorkel alongside them.",
+      "From Dauin, ride north to Sibulan port, take the short ferry to Liloan port in Santander, Cebu, and it's about 15 minutes by road to Tan-awan. Many travellers add Tumalog Falls nearby on the way back.",
+      "The encounters rely on fishermen feeding the sharks, which marine scientists criticise because it changes their natural behaviour. Decide for yourself — and if you go, follow the rules strictly.",
+    ],
+    highlights: [
+      "Snorkel with whale sharks",
+      "Short ferry hop from Negros to Cebu",
+      "Combine with Tumalog Falls",
+    ],
+    goodToKnow: [
+      "Viewing runs in the morning only (roughly 6:30am to 12:30pm) — leave Dauin before dawn.",
+      "Reported fees as of 2025: around ₱1,000 for foreigners and ₱500 for Filipinos, plus extra for snorkelling. Confirm on the day.",
+      "Ferries from Sibulan to Liloan take about 30 minutes and run frequently; fares are a few hundred pesos or less.",
+      "Don't touch the sharks, keep your distance, no flash photography and no sunscreen in the water.",
+      "Bring your passport or ID — needed for the ferry and to prove local or foreign rates.",
+    ],
+    duration: "Full day (early start)",
+    budget: "Fees + ferry + transport, or a pre-arranged tour from Dumaguete",
+    bestFor: ["Snorkellers", "Bucket-listers", "Groups sharing a driver"],
+    location: "Tan-awan, Oslob, Cebu — via Sibulan–Liloan ferry",
+    mapQuery: "Oslob Whale Shark Watching Tan-awan",
+    localHelp: ["van-bus", "tour-guide", "tricycle"],
+  },
+  {
+    slug: "siquijor-island",
+    title: "Siquijor island",
+    category: "nearby",
+    summary:
+      "The 'mystic island' off Dumaguete — turquoise waterfalls, white-sand beaches, ancient balete trees and a slow, friendly pace. Go for a day or stay a few.",
+    description: [
+      "Siquijor is famous across the Philippines for its folk healers and legends, but most visitors come for the scenery. Cambugahay Falls, a three-tiered turquoise waterfall with rope swings, is the star; Paliton Beach is the classic sunset spot.",
+      "Ferries leave Dumaguete port several times a day. The easiest way around the island is a hired tricycle or motorbike — a full loop of the coastal road takes most of a day.",
+    ],
+    highlights: [
+      "Cambugahay Falls swimming holes",
+      "Paliton Beach sunset",
+      "Centuries-old balete tree with fish spa",
+      "Spanish-era churches and quiet coastal roads",
+    ],
+    goodToKnow: [
+      "Ferries from Dumaguete take roughly 45 minutes to 2 hours depending on the boat; fast-craft fares start around ₱400. Check the last boat back if you're day-tripping.",
+      "Cambugahay has a few hundred steps down to the falls and a small entrance fee.",
+      "Many travellers find a day too short — consider staying one or two nights.",
+    ],
+    duration: "Full day or 2–3 days",
+    budget: "Ferry + island tour or motorbike rental + entrance fees",
+    bestFor: ["Backpackers", "Beach lovers", "Waterfall chasers"],
+    location: "Siquijor, ferry from Dumaguete port",
+    mapQuery: "Cambugahay Falls Siquijor",
+    localHelp: ["tricycle", "tour-guide"],
+  },
+  {
+    slug: "bais-manjuyod-sandbar",
+    title: "Bais dolphins & Manjuyod white sandbar",
+    category: "nearby",
+    summary:
+      "Spot dolphins in the Tañon Strait, then wade out onto a long white sandbar in the middle of the sea, lined with houses on stilts.",
+    description: [
+      "Bais City, north of Dumaguete, is the jumping-off point for boat trips into Tañon Strait, a protected seascape where dolphins are regularly seen in the morning.",
+      "The highlight for most people is the Manjuyod Sandbar — a strip of fine white sand that appears at low tide, far from shore. At high tide you swim and snorkel around it instead.",
+    ],
+    highlights: [
+      "Dolphin watching in Tañon Strait",
+      "Manjuyod white sandbar and stilt houses",
+      "Swimming and lunch on the boat",
+    ],
+    goodToKnow: [
+      "Check the tide table — the sandbar is most impressive at low tide.",
+      "Dolphins are most often seen in the morning, but sightings aren't guaranteed.",
+      "Shared (joiner) tours from Dumaguete are reported at around ₱1,500–₱2,500 per person including boat, fees and lunch; a private boat runs about ₱3,500–₱5,000. Prices vary.",
+      "Bring sun protection — there is almost no shade on the sandbar.",
+    ],
+    duration: "Full day",
+    budget: "Joiner tour, or private boat + transport to Bais",
+    bestFor: ["Families", "Groups", "Photographers"],
+    location: "Bais City & Manjuyod, ~1.5 hours north of Dauin",
+    mapQuery: "Manjuyod Sandbar",
+    localHelp: ["van-bus", "tour-guide"],
   },
 ];
 

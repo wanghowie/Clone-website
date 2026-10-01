@@ -6,7 +6,8 @@ export type ActivityCategory =
   | "nature"
   | "culture"
   | "wellness"
-  | "day-trip";
+  | "day-trip"
+  | "nearby";
 
 export type LocalCategory =
   | "tricycle"

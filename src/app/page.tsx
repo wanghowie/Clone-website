@@ -4,7 +4,7 @@ import { ActivityCard, LocalCard, MoreLink, RestaurantCard, StayCard } from "@/c
 import { localGradients, localIcons } from "@/components/category-icons";
 import { Container, SectionHeading } from "@/components/page-parts";
 import { SearchBox } from "@/components/search-box";
-import { getActivity } from "@/data/activities";
+import { activities, getActivity } from "@/data/activities";
 import { getLocalsByCategory, localCategories, localCategoryOrder, locals } from "@/data/locals";
 import { restaurants } from "@/data/restaurants";
 import { stays } from "@/data/stays";
@@ -21,6 +21,7 @@ const featuredActivitySlugs = [
 
 export default function Home() {
   const featuredActivities = featuredActivitySlugs.map(getActivity).filter((activity) => activity !== undefined);
+  const nearbyActivities = activities.filter((activity) => activity.category === "nearby");
 
   return (
     <>
@@ -71,6 +72,19 @@ export default function Home() {
         />
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {featuredActivities.map((activity) => (
+            <ActivityCard key={activity.slug} activity={activity} />
+          ))}
+        </div>
+      </Container>
+
+      <Container className="mt-20 sm:mt-24">
+        <SectionHeading
+          title="Beyond Dauin"
+          intro="Dauin makes a great base for exploring Negros and the islands around it — whale sharks in Oslob, Siquijor's waterfalls and the white sandbar of Bais."
+          action={<MoreLink href="/things-to-do?category=nearby">All trips nearby</MoreLink>}
+        />
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {nearbyActivities.map((activity) => (
             <ActivityCard key={activity.slug} activity={activity} />
           ))}
         </div>

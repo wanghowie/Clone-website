@@ -8,6 +8,7 @@ import {
   Map,
   Mountain,
   Sailboat,
+  TreePalm,
   Turtle,
   type LucideIcon,
 } from "lucide-react";
@@ -20,6 +21,7 @@ export const activityIcons: Record<ActivityCategory, LucideIcon> = {
   culture: Church,
   wellness: Flower2,
   "day-trip": Map,
+  nearby: TreePalm,
 };
 
 export const localIcons: Record<LocalCategory, LucideIcon> = {
@@ -39,6 +41,7 @@ export const activityGradients: Record<ActivityCategory, string> = {
   culture: "from-[oklch(0.42_0.06_40)] via-[oklch(0.58_0.1_50)] to-[oklch(0.8_0.09_75)]",
   wellness: "from-[oklch(0.5_0.08_330)] via-[oklch(0.65_0.1_20)] to-[oklch(0.85_0.07_70)]",
   "day-trip": "from-[oklch(0.35_0.05_250)] via-[oklch(0.5_0.08_230)] to-[oklch(0.75_0.1_60)]",
+  nearby: "from-[oklch(0.4_0.09_235)] via-[oklch(0.55_0.11_195)] to-[oklch(0.88_0.06_90)]",
 };
 
 export const localGradients: Record<LocalCategory, string> = {
