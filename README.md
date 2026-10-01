@@ -48,8 +48,18 @@ The site runs as a Node.js app (Hostinger Business / Cloud plans support Next.js
 
 4. Environment variable (optional): `NEXT_PUBLIC_SITE_URL=https://www.visitdauin.com`.
 5. Deploy. New pushes to the selected branch can redeploy automatically.
-6. Make sure both `visitdauin.com` and `www.visitdauin.com` point to the app and that SSL is active
-   (hPanel → Security → SSL). Redirect the bare domain to `www`.
+6. DNS: the domain is registered with **Cloudflare Registrar**, so DNS is managed in the Cloudflare dashboard
+   (Cloudflare-registered domains must keep Cloudflare nameservers). In Cloudflare → DNS → Records, point both
+   names at the IP hPanel shows for the app:
+
+   | Type | Name | Content | Proxy status |
+   | --- | --- | --- | --- |
+   | A | `@` | Hostinger app IP | DNS only (grey cloud) |
+   | A | `www` | Hostinger app IP | DNS only (grey cloud) |
+
+   Remove any older A / AAAA / CNAME records for `@` and `www`. Add any TXT verification record hPanel asks for.
+   Keep "DNS only" until hPanel shows SSL as active. If you later switch on the orange-cloud proxy, set
+   Cloudflare SSL/TLS mode to **Full (strict)** to avoid redirect loops. Redirect the bare domain to `www`.
 7. Submit `https://www.visitdauin.com/sitemap.xml` in Google Search Console.
 
 If the domain currently hosts a PHP/WordPress site in `public_html`, back it up first — the Node.js app replaces it.
